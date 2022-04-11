@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon >menu</mat-icon></button>
+    <h1 class="example-app-name">Menu</h1>
+  </mat-toolbar>
+<mat-sidenav-container class="menu">
+    <mat-sidenav #sidenav [mode]="'push'" class="navMenu">
+        <mat-nav-list>
+            <a mat-list-item *ngFor="let nav of options" (click)="view(nav)" >{{nav}}</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <h1 *ngIf="links==null">Bienvenidos</h1>
+        <div class="containerImg" *ngIf="links==null"><img class="img" src="../../assets/Escuelas alejadas.jpeg" alt=""></div>
+        <app-formularios [link]="links"></app-formularios>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+

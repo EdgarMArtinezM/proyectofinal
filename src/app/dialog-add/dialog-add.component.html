@@ -1,0 +1,67 @@
+<div mat-dialog-title class="dialog-title">
+    <ng-container [ngSwitch]="data.array">
+        <h3 *ngSwitchCase="'alumnos'">Agregar Nuevos Alumnos</h3>
+        <h3 *ngSwitchCase="'clases'">Agregar Nuevas Clases</h3>
+        <h3 *ngSwitchCase="'cursos'">Agregar Nuevos Cursos</h3>
+    </ng-container>
+</div>
+<div mat-dialog-content>
+    <ng-container [ngSwitch]="data.array">
+        <form *ngSwitchCase="'alumnos'" [formGroup]="formArch">
+            <div class="div20">
+                <mat-form-field>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" formControlName="name" autocomplete="off">
+                    <mat-error *ngIf="formArch?.controls?.name?.hasError('required')">
+                        El nombre es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="div20">
+                <mat-form-field>
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" formControlName="lastName" autocomplete="off">
+                    <mat-error *ngIf="formArch?.controls?.lastName?.hasError('required')">
+                        Los apellidos son <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="div20">
+                <mat-form-field>
+                    <mat-label>Edad</mat-label>
+                    <input matInput type="number" formControlName="age" autocomplete="off">
+                    <mat-error *ngIf="formArch?.controls?.age?.hasError('required')">
+                        La edad es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+        <form *ngSwitchCase="'clases'" [formGroup]="formArch">
+            <div class="div20">
+                <mat-form-field>
+                    <mat-label>Nombre de la clase</mat-label>
+                    <input matInput type="text" formControlName="name" autocomplete="off">
+                    <mat-error *ngIf="formArch?.controls?.name?.hasError('required')">
+                        El nombre es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+        <form *ngSwitchCase="'cursos'" [formGroup]="formArch">
+            <div class="div20">
+                <mat-form-field>
+                    <mat-label>Nombre del Curso</mat-label>
+                    <input matInput type="text" formControlName="name" autocomplete="off">
+                    <mat-error *ngIf="formArch?.controls?.name?.hasError('required')">
+                        El nombre es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </ng-container>
+   
+</div>
+<div mat-dialog-actions>
+    <button mat-flat-button color="accent" [mat-dialog-close]="false" class="styleBtn">Salir</button>
+    <button mat-flat-button color="warn" class="styleBtn" [disabled]="!this.formArch.valid" [mat-dialog-close]="{array:data.array,information:formArch.value}">Agregar</button>
+</div>

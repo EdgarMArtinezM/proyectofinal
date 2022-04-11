@@ -1,0 +1,71 @@
+<div [ngSwitch]="link" class="table">
+    <div *ngSwitchCase="'Clases'">
+        <h3>{{link}}</h3>
+        <button mat-button color="primary" (click)="agregar('clases');">Agregar</button>
+        <table class="tblGeneral">
+            <tbody>
+                <tr>
+                    <th>No.</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr *ngFor="let clase of clases; let i = index;">
+                    <td>{{clase.id}}</td>
+                    <td>{{clase.name}}</td>
+                    <td>
+                        <ng-container *ngFor="let item of clase.actions">
+                            <button (click)="delete(clase,'clases');" mat-flat-button color="primary">{{item}}</button>
+                        </ng-container>
+                    </td>
+                </tr>
+        </table>
+        <h3 class="register" *ngIf="clases.length<=0">No hay registros</h3>
+    </div>
+    <div *ngSwitchCase="'Cursos'">
+        <h3>{{link}}</h3>
+        <button mat-button color="primary" (click)="agregar('cursos');">Agregar</button>
+        <table class="tblGeneral">
+            <tbody>
+                <tr>
+                    <th>No.</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr *ngFor="let curso of cursos; let i = index;">
+                    <td>{{curso.id}}</td>
+                    <td>{{curso.name}}</td>
+                    <td>
+                        <ng-container *ngFor="let item of curso.actions">
+                                <button (click)="delete(curso,'alumnos');" mat-flat-button color="primary">{{item}}</button>
+                        </ng-container>
+                    </td>
+                </tr>
+        </table>
+        <h3 class="register" *ngIf="cursos.length<=0">No hay registros</h3>
+    </div>
+    <div *ngSwitchCase="'Alumnos'">
+        <h3>{{link}}</h3>
+        <button mat-button color="primary" (click)="agregar('alumnos');">Agregar</button>
+        <table class="tblGeneral">
+            <tbody>
+                <tr>
+                    <th>No.</th>
+                    <th>Nombre Completo</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr *ngFor="let alumno of alumnos; let i = index;">
+                    <td>{{alumno.id}}</td>
+                    <td>{{alumno.name | name: alumno.name:alumno.lastName}}</td>
+                    <td>{{alumno.age}}</td>
+                    <td>
+                        <ng-container *ngFor="let item of alumno.actions">
+                                <button (click)="delete(alumno,'alumnos');" mat-flat-button color="primary">{{item}}</button>
+                        </ng-container>
+                    </td>
+                </tr>
+        </table>
+        <h3 class="register" *ngIf="alumnos.length<=0">No hay registros</h3>
+    </div>
+
+</div>

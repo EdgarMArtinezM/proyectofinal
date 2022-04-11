@@ -1,0 +1,37 @@
+.table{
+    width: 100vw;
+}
+.tblGeneral {
+    width: 98%;
+    padding: 14px 1%;
+    margin: 20px auto;
+    min-width: 850px;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.tblGeneral tr th {
+    padding: 5px 10px 6px 10px;
+    color: #8a8a8a;
+    text-align: center;
+    font-weight: 100;
+    border-bottom: 2px solid #17dbbb;
+    font-size: 14px;
+}
+.tblGeneral tr:nth-child(even) td {
+    background-color: #f3f3f3;
+}
+.tblGeneral tr:nth-child(odd) td {
+    background-color: #ffffff;
+}
+.register{
+    display: block; 
+    text-align: center;
+
+}
+h3{
+    display: block;
+    text-align: center;
+}

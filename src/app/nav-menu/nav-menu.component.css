@@ -1,0 +1,15 @@
+.menu{
+    height: 100vh;
+}
+.navMenu{
+    width: 300px;
+}
+mat-sidenav-content h1{
+    display: block;
+    text-align: center;
+}
+mat-sidenav-content .containerImg{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
